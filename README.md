@@ -8,47 +8,54 @@
 
 ## Run Cucumber tests with Maven
 
-This project has the maven-compiler-plugin added in POM used to compile the sources of the project.
+This project has the maven-compiler-plugin added in POM that is used to compile the sources of the project.
 
-_To run tests with maven use the below Command_
+_To run tests with maven use the below command_
 
 ```bash
 mvn clean verify 
 ```
 
-# Docker
+# Run Cucumber tests with Docker
 
-[//]: # (##Run Cucumber tests with Docker)
+Depending on your needs, follow the instruction below:
 
-Docker-compose contains two profiles, selenium and all, which allows you to start the containers depending on the needs.
-
----
 To start the tests in a docker container run the following command.
 
 ```bash
-docker-compose --profile all up -d
+docker-compose up -d
 ```
 
 __Selenium Grid__
 
-To run the UI test with Maven, you need to run the following command.
+__To be able to run the UI tests the Selenium Grid needs to be started beforehand using Docker__:
 
 ```bash
-docker-compose --profile selenium up -d
+docker-compose up selenium-hub firefox -d
 ```
 
-Additionally, you can manually start tests with a docker container afterwards with the below command
+Additionally, you can manually start tests with a docker container afterwards using the command
 
 ```bash
 docker-compose run --rm maven
 
 ```
 
-For clean up run the following
+For clean up run the following command
 
 ```
 docker-compose down --remove-orphans
 ```
+
+## Cucumber report
+
+Reporting is done using Cucumber Reports service. After tests are run the link for report is generated
+
+## Surefire plugin
+
+Surefire plugin is used to generate reports in .txt and .xml format.
+
+_Soon will be implemented also for html format_
 
 ## Tags
 

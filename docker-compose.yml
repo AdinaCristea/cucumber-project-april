@@ -15,14 +15,14 @@ services:
     ports:
       - "6902:5900"
       - "7902:7900"
-    profiles: [ "selenium","all" ]
+  #    profiles: [ "selenium","all" ]
 
   selenium-hub:
     image: selenium/hub:4.1.2-20220217
     container_name: selenium-hub
     ports:
       - "4444:4444"
-    profiles: [ "selenium","all" ]
+  #    profiles: [ "selenium","all" ]
 
   maven:
     image: maven:3.6.3-openjdk-8
@@ -31,4 +31,4 @@ services:
       - .:/usr/src/mymaven
     command: mvn -f /usr/src/mymaven clean verify
     network_mode: "host"
-    profiles: [ "all" ]
+#    profiles: [ "all" ]

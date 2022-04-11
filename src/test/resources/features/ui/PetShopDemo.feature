@@ -11,10 +11,10 @@ Feature: Homework UI  - UI test
     And [UI] See manx cats in store
     And [UI] Add to cart one With tale Manx
     Then [UI] Assert that products are added to cart
-    # Remove items item
     Given [UI] Remove item
-#    Then [UI] Assert product is removed from cart
-#    And [UI] Remove item
-##    Then [UI] Assert product is removed from cart
-#    Then [UI] Remove item
+    Then [UI] Assert product is removed from cart
+    And [UI] Remove second item
+    Then [UI] Assert all products are removed from cart
+    # Following remove item will fail due to previous assert - as expected
+    Then [UI] Remove item
 

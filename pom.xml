@@ -15,6 +15,12 @@
         <surefire.version>3.0.0-M5</surefire.version>
         <junit.platform.version>1.8.2</junit.platform.version>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <io.rest.assured.version>4.3.2</io.rest.assured.version>
+        <httpclient.version>4.5.3</httpclient.version>
+        <log4j-api.version>2.17.2</log4j-api.version>
+        <log4j-core.version>2.17.2</log4j-core.version>
+        <lombok.version>1.18.22</lombok.version>
+        <selenium.api.version>4.1.1</selenium.api.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
@@ -46,12 +52,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>4.1.1</version>
+            <version>${selenium.api.version}</version>
         </dependency>
         <!--Test and Junit Platform Engine dependencies-->
         <dependency>
@@ -74,18 +80,48 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.3.2</version>
+            <version>${io.rest.assured.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>4.3.2</version>
+            <scope>${io.rest.assured.version}</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!--Logger dependencies-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -107,6 +143,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.0</version>
                 <configuration>
                     <fork>true</fork>
                     <source>1.8</source>
@@ -119,7 +156,7 @@
                 <version>${surefire.version}</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>verify</phase>
                     </execution>
                 </executions>
                 <configuration>
@@ -127,6 +164,9 @@
                         <configurationParameters>
                             cucumber.junit-platform.naming-strategy=long
                         </configurationParameters>
+                        <jsonFiles>
+                            <param>**.*.json</param>
+                        </jsonFiles>
                     </properties>
                 </configuration>
             </plugin>

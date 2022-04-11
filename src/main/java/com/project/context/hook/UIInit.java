@@ -16,7 +16,7 @@ import java.util.Set;
 @ScenarioScoped
 public class UIInit {
 
-    public final Set<WebDriver> WEB_DRIVER = Collections.synchronizedSet(new HashSet<>());
+    public static final Set<WebDriver> WEB_DRIVERS = Collections.synchronizedSet(new HashSet<>());
     public static final ThreadLocal<WebDriver> WEB_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
     public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(10);
 
@@ -27,7 +27,7 @@ public class UIInit {
             driver = getFirefoxWebdriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT);
             WEB_DRIVER_THREAD_LOCAL.set(driver);
-            WEB_DRIVER.add(driver);
+            WEB_DRIVERS.add(driver);
         }
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT);
         driver.get("https://petstore.octoperf.com/actions/Catalog.action");
