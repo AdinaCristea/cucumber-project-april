@@ -37,9 +37,10 @@ public class UIInit {
         driver.get("https://petstore.octoperf.com/actions/Catalog.action");
     }
 
+    //localhost:4444 is the connection to seleniumHub
+    
     private static WebDriver getFirefoxWebdriver() throws MalformedURLException {
         FirefoxOptions options = new FirefoxOptions();
         return new RemoteWebDriver(new URL("http://localhost:4444"), options);
-
     }
 }
