@@ -9,10 +9,14 @@ public class BasePage {
 
     protected WebDriver driver;
 
+    // will instantiate page
+    
     protected BasePage() {
         this(WEB_DRIVER_THREAD_LOCAL.get());
     }
 
+    // @find by, elements will be ready because to be use
+    
     protected BasePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
