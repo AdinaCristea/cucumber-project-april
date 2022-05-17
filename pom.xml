@@ -8,8 +8,16 @@
     <artifactId>cucumber-project-april</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <developers>
+      <developer>
+         <name>Adina Cristea</name>
+         <email>adinaa.iulia@gmail.com</email>
+        </developer>
+    </developers>
+         
     <properties>
-        <cucumber.version>7.2.3</cucumber.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cucumber.version>7.3.4</cucumber.version>
         <guice.version>5.1.0</guice.version>
         <selenium.java.version>4.1.1</selenium.java.version>
         <surefire.version>3.0.0-M5</surefire.version>
@@ -19,7 +27,7 @@
         <httpclient.version>4.5.3</httpclient.version>
         <log4j-api.version>2.17.2</log4j-api.version>
         <log4j-core.version>2.17.2</log4j-core.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <selenium.api.version>4.1.1</selenium.api.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
