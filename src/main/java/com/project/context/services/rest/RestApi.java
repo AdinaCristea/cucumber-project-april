@@ -23,6 +23,8 @@ public class RestApi extends BaseRest {
     private static final String PUT_ENDPOINT = "/update/{id}";
     private static final String DELETE_ENDPOINT = "/delete/{id}";
 
+    //try-with-resources statement ensures that each resource is closed at the end of the statement
+    
     // rest api using CloseableHttpClient
     public void postEmployeeCloseableHttpClient(String requestBody) throws URISyntaxException, IOException {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
